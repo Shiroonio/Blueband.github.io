@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1, minimum-scale=1, maximum-scale=5">
+  <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+  <title>untuk coach!</title>
+  <meta name="description" content="Spesial Gift Buat Coach">
+  <meta property="og:title" content="untuk coach!">
+  <meta property="og:description" content="Spesial Gift Buat Coach">
+  <meta property="og:image" content="https://shiroonio.github.io/wallpaper/merah.jpeg">
+  <meta property="og:type" content="website">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Handlee&family=Sriracha&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://htmlku.com/prod/kado/style.css">
+  <link rel="stylesheet" href="https://htmlku.com/mangats/style.css">
+  <script src="https://htmlku.com/prod/typeit.js"></script>
+  <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+
+  <style>
+    /* PIN keypad styles (dari pin.html) */
+    .pinDisplay{display:flex;justify-content:center;gap:11px;margin:16px 0 12px}
+    .pinDot{width:18px;height:18px;border:1.8px solid #ffffff;border-radius:50%;background:rgba(255,255,255,0.06);box-shadow:0 0 4px rgba(255,209,220,0.25);transition:all .25s ease}
+    .pinDot.isi{background:var(--color-heart);border-color:var(--color-heart);box-shadow:0 0 10px rgba(255,111,145,.85);transform:scale(1.15);animation:pinDotMuncul .3s ease}
+    @keyframes pinDotMuncul{0%{transform:scale(0)}60%{transform:scale(1.4)}100%{transform:scale(1.15)}}
+    .pinDisplay.goyang{animation:pinSalahGoyang .4s ease}
+    @keyframes pinSalahGoyang{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+    #pinPesan{color:#FFF3F6;font-weight:400;line-height:1.45;font-size:13px;text-shadow:0 2px 3px rgba(0,0,0,0.4);min-height:42px;padding:0 10px;transition:opacity .2s ease}
+    .keypadPin{display:grid;grid-template-columns:repeat(3,68px);gap:10px;justify-content:center;justify-items:center;align-items:center;width:100%;margin:8px auto 18px}
+    .tombolPin{font-family:'Montserrat',sans-serif;width:68px;height:40px;border-radius:10px 14px 10px 14px;font-size:1rem;font-weight:600;padding:0;background:rgb(63 55 83 / 40%);backdrop-filter:blur(5px);border:2px solid #ffffff;color:#fff;text-shadow:0 2px 2px rgba(0,0,0,0.5);box-shadow:0 4px 14px rgba(0,0,0,0.15);transition:transform .25s ease,background .25s ease,box-shadow .25s ease;opacity:0;transform:scale(0);animation:tombolMuncul .4s ease forwards}
+    .tombolPin:hover{background:rgb(63 55 83 / 70%);transform:translateY(-2px) scale(1.06)!important;box-shadow:0 6px 18px rgba(0,0,0,0.25)}
+    .tombolPin:active{transform:scale(.9)!important}
+    @keyframes tombolMuncul{to{opacity:1;transform:scale(1)}}
+    .tombolPin:nth-child(1){animation-delay:.05s}
+    .tombolPin:nth-child(2){animation-delay:.1s}
+    .tombolPin:nth-child(3){animation-delay:.15s}
+    .tombolPin:nth-child(4){animation-delay:.2s}
+    .tombolPin:nth-child(5){animation-delay:.25s}
+    .tombolPin:nth-child(6){animation-delay:.3s}
+    .tombolPin:nth-child(7){animation-delay:.35s}
+    .tombolPin:nth-child(8){animation-delay:.4s}
+    .tombolPin:nth-child(9){animation-delay:.45s}
+    .tombolPin:nth-child(10){animation-delay:.5s}
+    .tombolPin:nth-child(11){animation-delay:.55s}
+    .tombolPin:nth-child(12){animation-delay:.6s}
+
+    /* Section yoma tersembunyi di awal */
+    #yomaSection {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      overflow: auto;
+    }
+    #yomaSection.show {
+      display: block;
+    }
+    /* Sembunyikan elemen kado setelah pindah ke yoma */
+    body.yoma-mode #hal1,
+    body.yoma-mode #halPin,
+    body.yoma-mode #hal2,
+    body.yoma-mode #hal3,
+    body.yoma-mode #hal4,
+    body.yoma-mode .tombol,
+    body.yoma-mode .background-overlay,
+    body.yoma-mode .circ {
+      display: none !important;
+    }
+    /* Hilangkan tombol awal yoma */
+    #ket, #loveIn, .awalan {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Audio -->
+  <audio src="https://shiroonio.github.io/music/call.mp3" id="linkmp3"></audio>
+  
+  <!-- Background / Wallpaper -->
+  <div class="background-overlay" data-src="https://shiroonio.github.io/wallpaper/merah.jpeg"></div>
+
+  <!-- ==================== HALAMAN 1: Envelope (dari pin.html) ==================== -->
+  <div id="hal1">
+    <div class="envlope-wrapper">
+      <div id="envelope" class="close">
+        <div class="front flap"></div>
+        <div class="front pocket"></div>
+        <div class="letter">
+          <div class="letter-corner corner-tl"></div>
+          <div class="letter-corner corner-br"></div>
+          <div class="message">
+            <p>untuk tya!! </p>
+          </div>
+        </div>
+        <div class="hearts">
+          <div class="heart a1"></div>
+          <div class="heart a2"></div>
+          <div class="heart a3"></div>
+        </div>
+        <div class="sparkles">
+          <div class="sparkle s1"></div>
+          <div class="sparkle s2"></div>
+          <div class="sparkle s3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="reset">
+      <button style="border-radius: 20px;padding:4px 12px;margin-top:-25px" onclick="bukaEnvelope()">Buka</button>
+    </div>
+  </div>
+
+  <!-- ==================== HALAMAN PIN (dari pin.html) ==================== -->
+  <div id="halPin" class="kotak sembunyi">
+    <div class="decor decor-tl"></div>
+    <div class="decor decor-br"></div>
+    <h2 style="font-size:19.5px">Tebak PINnya tya 🔐</h2>
+    <p style="font-size:14.5px">Masukkan 4 digit PIN yang benar!</p>
+    <div id="kotakPesanPin"></div>
+    <div id="pinDisplay" class="pinDisplay">
+      <span class="pinDot"></span>
+      <span class="pinDot"></span>
+      <span class="pinDot"></span>
+      <span class="pinDot"></span>
+    </div>
+    <p id="pinPesan"></p>
+    <div id="keypadPin" class="keypadPin"></div>
+  </div>
+
+  <!-- ==================== HALAMAN 2: Memory Game (dari tes lagu / kado) ==================== -->
+  <div id="hal2" class="kotak sembunyi">
+    <div class="decor decor-tl"></div>
+    <div class="decor decor-br"></div>
+    <canvas id="game-canvas"></canvas>
+    <h2 style="font-size:18.5px"> after finishing this, there’s a secret message for you </h2>
+    <p style="font-size:14.5px">balik dua kartu yang sama ya! </p>
+    <div id="kotakPesan"></div>
+    <div id="papanGame" class="papanGame"></div>
+    <p id="statusGame"></p>
+    <button id="lanjut" onclick="pindahHal(3)" class="sembunyi">lihat pesan rahasia!</button>
+    <button id="ulang" onclick="mulaiHal2()" class="tombolCadangan sembunyi">coba lagi!</button>
+  </div>
+
+  <!-- ==================== HALAMAN 3: Make a wish (dari tes lagu / kado) ==================== -->
+  <div id="hal3" class="kotak sembunyi">
+    <div class="decor decor-tl"></div>
+    <div class="decor decor-br"></div>
+    <h2 style="font-size:18.5px">make a wish dulu </h2>
+    <img src="https://htmlku.com/0/panda/kue.gif" style="width: 0; height: auto; margin: 10px auto; display: block;" />
+    <div class="kue-container">
+      <div class="lilin-container">
+        <div class="lilin">
+          <div class="api" id="apiLilin"></div>
+        </div>
+      </div>
+      <div class="kue">
+        <div class="lapisan lapisan-atas">
+          <div class="krim"></div>
+          <div class="krim"></div>
+          <div class="krim"></div>
+        </div>
+        <div class="lapisan lapisan-tengah">
+          <div class="coklat"></div>
+          <div class="coklat"></div>
+          <div class="coklat"></div>
+          <div class="coklat"></div>
+        </div>
+        <div class="lapisan lapisan-bawah">
+          <div class="coklat"></div>
+          <div class="coklat"></div>
+          <div class="coklat"></div>
+          <div class="coklat"></div>
+          <div class="coklat"></div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:14.5px">tutup matamu, buat permintaan,<br>lalu tiup lilinnya! </p>
+    <button onclick="tiupLilin()">tiup lilin ️•O•</button>
+  </div>
+
+  <!-- ==================== HALAMAN 4: Pesan (dari tes lagu / kado) ==================== -->
+  <div id="hal4" class="kotak sembunyi">
+    <div class="decor decor-tl"></div>
+    <div class="decor decor-br"></div>
+    <div id="stiker4" class="stiker">
+        <img id="stiker4a" src="https://htmlku.com/0/panda/kue.gif" />
+        <img id="stiker4b" class="sembunyi" src="https://htmlku.com/0/panda/semprot.gif" />
+        <img id="stiker4c" class="sembunyi" src="https://htmlku.com/0/panda/terlope.gif" />
+    </div>
+    <div id="containerPesan">
+	    <p id="teksCinta"></p>
+	    <p id="pesanAkhir"></p>
+	    <p id="teksLucu"></p>
+    </div>
+    <button style="display:none" onclick="shareTelegram()">kirim ke dia!</button>
+  </div>
+  <div class="tombol">
+    <button style="padding:4px 12px;" onclick="balasWa()">💌 balas</button>
+  </div>
+  
+  <!-- Circle Animation -->
+  <div><div><div class="circ"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>
+
+  <!-- Variabel & logika PIN + Memory Game + Kado -->
+  <script>
+    // ========== PIN (dari pin.html) ==========
+    let pinBenar = "3009";
+    var cluePin = "Hint : tanggal + bulan ultah tya ";
+    var teksPinBenar = "Yeayy! PIN-nya benarr! ";
+
+    let pinInput = "";
+    let percobaanSalah = 0;
+
+    function mulaiHalPin() {
+      pinInput = "";
+      percobaanSalah = 0;
+      document.getElementById('pinPesan').innerHTML = '';
+      updatePinDisplay();
+
+      const keypadPin = document.getElementById('keypadPin');
+      keypadPin.innerHTML = '';
+      const tombolTombol = ['1','2','3','4','5','6','7','8','9','','0','⌫'];
+      tombolTombol.forEach((tombol) => {
+        if (tombol === '') {
+          keypadPin.appendChild(document.createElement('span'));
+          return;
+        }
+        const elemenTombol = document.createElement('button');
+        elemenTombol.className = 'tombolPin';
+        elemenTombol.innerText = tombol;
+        elemenTombol.addEventListener('click', () => tekanTombolPin(tombol));
+        keypadPin.appendChild(elemenTombol);
+      });
+    }
+
+    function updatePinDisplay() {
+      const titikTitik = document.querySelectorAll('#pinDisplay .pinDot');
+      titikTitik.forEach((titik, index) => {
+        titik.classList.toggle('isi', index < pinInput.length);
+      });
+    }
+
+    function tekanTombolPin(tombol) {
+      if (tombol === '⌫') {
+        pinInput = pinInput.slice(0, -1);
+        updatePinDisplay();
+        return;
+      }
+      if (pinInput.length < 4) {
+        pinInput += tombol;
+        updatePinDisplay();
+        if (pinInput.length === 4) setTimeout(cekPin, 300);
+      }
+    }
+
+    function cekPin() {
+      const pinDisplay = document.getElementById('pinDisplay');
+      if (pinInput === pinBenar) {
+        document.getElementById('pinPesan').innerHTML = teksPinBenar;
+        // Setelah PIN benar → langsung ke mini game (hal2)
+        setTimeout(() => {
+          document.getElementById('halPin').style = "transform:scale(0);transition:all .6s ease";
+          setTimeout(() => {
+            document.getElementById('halPin').classList.add('sembunyi');
+            // Panggil pindahHal(2) dari script kado → memory game
+            if (typeof pindahHal === 'function') {
+              pindahHal(2);
+            } else {
+              document.getElementById('hal2').classList.remove('sembunyi');
+              document.getElementById('hal2').style = "width:90%;padding:.9rem;margin-top:100px;transform:scale(1);transition:all .7s ease";
+              if (typeof mulaiHal2 === 'function') mulaiHal2();
+            }
+          }, 250);
+        }, 900);
+      } else {
+        percobaanSalah++;
+        if (percobaanSalah === 1) {
+          document.getElementById('pinPesan').innerHTML = 'PIN-nya salah! <br> coba lagi ya tya! ';
+        } else {
+          document.getElementById('pinPesan').innerHTML = 'PIN-nya masih salah! <br>' + cluePin;
+        }
+        pinDisplay.classList.remove('goyang');
+        void pinDisplay.offsetWidth;
+        pinDisplay.classList.add('goyang');
+        pinInput = "";
+        updatePinDisplay();
+      }
+    }
+
+    // ========== Variabel Memory Game + Pesan (dari tes lagu / kado) ==========
+    const kartu = [
+	  { id: 3, icon: '🍪', pesan: '' },
+	  { id: 5, icon: '🍀', pesan: '' },
+	  { id: 1, icon: '🍒', pesan: '' },
+	  { id: 6, icon: '🍰', pesan: '' },
+	  { id: 2, icon: '🎂', pesan: '' },
+	  { id: 4, icon: '🍓', pesan: '' },
+	  { id: 1, icon: '🍒', pesan: '' },
+	  { id: 3, icon: '🍪', pesan: '' },
+	  { id: 5, icon: '☘️', pesan: '' },
+	  { id: 2, icon: '🎂', pesan: '' },
+	  { id: 4, icon: '🍓', pesan: '' },
+	  { id: 6, icon: '🍰', pesan: '' }
+	];
+
+    const txtDoa = "<b style='font-size:20px'>happy birthday kaka! 🎂 </b>";
+    const txtPesanAkhir = "kita make a wish di hari ulang tahunmu ini yaa... semoga kamu selalu diberi kesehatan, hati yang tenang, dan langkah yang dimudahkan dalam setiap rencana baikmu serta kebahagiaan selalu menyertaimu <br><br>semoga di usia yang baru ini, kamu makin kuat, makin sabar, dan makin percaya sama diri sendiri. apa pun yang kamu impikan, pelan-pelan semoga satu per satu bisa terwujud dengan cara terbaik <br><br>semangat terus buat kejar semua keinginan kamuu, jangan pernah takut gagal yaa, aku selalu dukung kamu dan support kamu di sini. oh ya, jangan lupa untuk selalu bersyukur yaa 🍬";
+    const txtLucu = "terakhir,<br><b>happy level up day 🍁</b>and ...<br><b style='font-size:18px'>have a fabulous birthday 🦊</b>";
+
+    const textTelegram = "Aku udah bacaaa 🫢 Maaciiwwwww yaaaa!";
+  </script>
+
+  <!-- Script kado (memory + cake + pesan) -->
+  <script src="https://htmlku.com/prod/kado/script.js"></script>
+
+  <!-- Override bukaEnvelope supaya setelah buka amplop → ke PIN (bukan langsung ke memory) -->
+  <script>
+    // Simpan referensi audio & background yang sudah di-set script kado
+    const originalBukaEnvelope = window.bukaEnvelope;
+
+    window.bukaEnvelope = function() {
+      // Play audio (sama seperti original)
+      if (typeof audio !== 'undefined' && audio) {
+        try { audio.play(); } catch(e) {}
+      } else {
+        const a = document.getElementById('linkmp3');
+        if (a) a.play().catch(()=>{});
+      }
+
+      const envelope = document.getElementById('envelope');
+      envelope.classList.remove('close');
+      envelope.classList.add('open');
+      document.querySelector(".reset").style = "transform:scale(0);opacity:0;transition:all .7s ease";
+      setTimeout(() => {
+        document.querySelector("#envelope").style = "transform:scale(0);opacity:0;transition:all .7s ease";
+        setTimeout(() => {
+          // Ke halaman PIN, bukan ke memory
+          document.getElementById('hal1').classList.add('sembunyi');
+          document.getElementById('halPin').classList.remove('sembunyi');
+          document.getElementById('halPin').style = "width:90%;padding:.9rem;margin-top:100px;transform:scale(1);transition:all .7s ease";
+          mulaiHalPin();
+          envelope.classList.remove('open');
+          envelope.classList.add('close');
+        }, 700);
+      }, 1200);
+    };
+  </script>
+
+  <!-- Override tiupLilin supaya setelah tiup langsung masuk ke section yoma (seperti tes lagu) -->
+  <script>
+    const originalTiupLilin = window.tiupLilin;
+
+    window.tiupLilin = function() {
+      if (typeof originalTiupLilin === 'function') {
+        try { originalTiupLilin(); } catch(e) {}
+      }
+
+      setTimeout(function() {
+        document.body.classList.add('yoma-mode');
+        document.getElementById('yomaSection').classList.add('show');
+
+        const audioYoma = document.getElementById('linkmp3-yoma');
+        if (audioYoma) {
+          audioYoma.play().catch(()=>{});
+        }
+
+        setTimeout(function() {
+          const loveBtn = document.getElementById('loveIn');
+          if (loveBtn) {
+            loveBtn.click();
+          }
+        }, 300);
+      }, 1800);
+    };
+  </script>
+
+  <!-- ==================== BAGIAN YOMA (dari tes lagu) ==================== -->
+  <div id="yomaSection">
+    <!-- Audio yoma -->
+    <audio src="https://shiroonio.github.io/mus/mp3" id="linkmp3-yoma" class="sembunyi"></audio>
+   
+    <div id="bodyblur">
+      <img src="https://shiroonio.github.io/wallpaper/merah.jpeg" id="wallpaper"/><div id="beneranblur"></div>
+    </div>
+   
+    <div id='Content'>
+
+      <!-- Tombol awal disembunyikan, tapi tetap ada di DOM biar script bisa auto-klik -->
+      <p id="ket" style="display:none">pencet untuk menaikkan mood menjadi 99% </p>
+      <div style="display:none"><div id="loveIn" class="awalan">
+        <svg class='line' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g transform='translate(2.000000, 2.000000)'><path d='M9.27542857,0.714285714 C14.0030476,0.714285714 17.836381,4.54666667 17.836381,9.2752381 C17.836381,14.0038095 14.0030476,17.8361905 9.27542857,17.8361905 C4.54685714,17.8361905 0.71447619,14.0038095 0.71447619,9.2752381 C0.71447619,4.54666667 4.54685714,0.714285714 9.27542857,0.714285714 Z'></path><path d='M17.8989524,16.487619 C18.678,16.487619 19.3094286,17.12 19.3094286,17.8980952 C19.3094286,18.6780952 18.678,19.3095238 17.8989524,19.3095238 C17.1199048,19.3095238 16.4875238,18.6780952 16.4875238,17.8980952 C16.4875238,17.12 17.1199048,16.487619 17.8989524,16.487619 Z'></path></g></svg>
+        <label>dari tang untuk yoma</label>
+      </div></div>
+      <p id="kot" class="sembunyi"><a href="https://bit.ly/htmlfeeldream" target="_blank">terkhusus</a></p>
+
+      <div class="kumpulanstiker">
+          <img src="https://feeldreams.github.io/peach6.gif" id="fotostiker"/>
+          <img src="https://feeldreams.github.io/peachhello.gif" id="fotostiker2"/>
+          <img src="https://feeldreams.github.io/peach22.gif" id="fotostiker3"/>
+          <img src="https://htmlku.com/0/panda/cubit.gif" id="fotostiker4"/>
+          <img src="https://feeldreams.github.io/pusn.gif" id="fotostiker5"/>
+          <img src="https://htmlku.com/0/panda/semprot.gif" id="fotostiker6"/>
+          <img src="https://feeldreams.github.io/peachspeech.gif" id="fotostiker7"/>
+          <img src="https://htmlku.com/0/panda/kue.gif" id="fotostiker8"/>
+      </div>
+     
+      <div><blockquote id='bq' data-text='&#9829;'>
+
+        <p id="kalimat"> tyaaa <b class="merahmuda"> bunga untuk kamu </b>! </p>
+        <p id="kalimat1"> yeay! kamu sudah 20 tahun  <br> ih tapi kok masih baby face ya?! </p>
+        <p id="kalimat2"> oke lupakan itu, tya memang cantik </p>
+        <p id="kalimat3"> tadi kamu sudah make a wish kan?<br> sekarang giliran aku! </p>
+        <p id="kalimat4"> aku harap tya selalu terhindar dari hal buruk <br> dan selalu bertemu dengan kebahagian </p>
+        <p id="kalimat5"> karena tya orang ga enakan, <br> dia harus ketemu orang baik! </p>
+        <p id="kalimat6ngetik"><b class='garismerahmuda'> long text for tya, </b> semoga kamu selalu diberi kesehatan, hati yang tenang, dan langkah yang dimudahkan dalam setiap rencana baikmu serta kebahagiaan selalu menyertaimu  <br><br> aku harap di usia yang baru ini, kamu makin kuat, makin sabar, dan makin percaya sama diri sendiri. apa pun yang kamu impikan, pelan-pelan semoga satu per satu bisa terwujud dengan cara terbaik  <br><br> u're not center of this world. it's okay to be mediocre. apresiasi dirimu sendiri sekecil apapun itu, berusaha jadi yang terbaik untuk dirimu sendiri bukan orang lain. <br><br> and remember this, hard days don't stay forever. u're stronger than u think <br><br><b class="merahmuda"> SELAMAT ULANG TAHUN TYA!!!! 🍬 </b></p>
+       
+        <p id="opsL">pencet buat lanjut ya</p>
+        <div class="progress-bar-container"><div id="progress-bar" class="progress-bar"></div></div>
+       
+      </blockquote></div>
+     
+    </div>
+  </div>
+
+  <!-- Script asli dari file yoma / mangats -->
+  <script src="https://htmlku.com/mangats/script.js"></script>
+
+</body>
+</html>
